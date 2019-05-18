@@ -1,15 +1,107 @@
-// randIndex :: Int -> Int
-// limit debe ser un entero
-function randIndex(limit)  {
-  const randNum = Math.random()// genera un número aleatorio entre 0 y 1
-  const limit_ = limit+0.9999 // genera el máximo numero "posible" antes del siguiente entero
-  const randResult = randNum*limit_ // multiplica el numero aleatorio por el limite, lo que genera un número entre 0 y limit_
-  return parseInt(randResult) // convierte el flotante (Float)  en entero (Int) 
-  // todo lo de arriba también se puede escribir como:
-  // return parseInt(Math.random()*(limit+0.9999)) // no siempre es necesario generar tantas variables, pero a veces es más claro
+// cuestion de los bundlers (parcel o webpack), nos da los paths que se usan en el bundle (porque los bundlers los cambian)
+import piedraPath from './imgs/piedra.png'
+import papelPath from './imgs/papel.png'
+import tijeraPath from './imgs/tijera.png'
+
+
+// ======== Hash maps =====
+//ponemos los paths en un mapa
+const images = {
+  piedra: piedraPath, 
+  papel: papelPath, 
+  tijera: tijeraPath
 }
 
-const choices = ['piedra', 'papel', 'tijeras']
+// llevamos los scores
+const score = {
+  user: 0,
+  computer: 0,
+  tie: 0
+}
 
-console.log('Este numero siempre sera un índice aleatorio que pueden usar para que la máquina seleccione un índice al azar', randIndex(2))
-console.log(choices[randIndex(choices.length - 1)])
+// ==== objetos del DOM =======
+// imagenes/botones
+const piedra = document.getElementById('piedra')
+const papel = document.getElementById('papel')
+const tijera = document.getElementById('tijera')
+
+// divs con el texto del contador
+const contadorJugador = document.getElementById('contadorJugador')
+const contadorMaquina = document.getElementById('contadorMaquina')
+
+// divs con la imagen seleccionada por cada jugardor
+const userSelectionDiv = document.getElementById("jugador")
+const machineSelectionDiv = document.getElementById("maquina")
+
+
+//====== Funciones =======
+
+const randIndex =  (limit) => parseInt(Math.random()*(limit+0.9999)) 
+
+const choices = ['piedra', 'papel', 'tijera']
+
+const doComputerChoice = () => choices[randIndex(2)]
+
+const selectWinner = (userChoice, computerChoice) => {
+  // caso de empate
+  if(userChoice === computerChoice) {
+    return 'tie'
+  }
+
+  // casos donde el usuario gana
+  if(userChoice === 'piedra' && computerChoice === 'tijera') {
+    return 'user'
+  }
+
+  if(userChoice === 'papel' && computerChoice === 'piedra') {
+    return 'user'
+  }
+
+  if(userChoice === 'tijera' && computerChoice === 'papel') {
+    return 'user'
+  }
+
+  // si el usuario no gana, ni empata entonces pierde
+  return 'computer'
+}
+
+const updateScore = (winner) => {
+  score[winner] = score[winner] + 1;
+  contadorJugador.innerText = score.user
+  contadorMaquina.innerText = score.computer
+}
+
+const updateSelections = (userChoice, computerChoice) => {
+  // actualiza los divs con la imagenes seleccionadas
+  userSelectionDiv.innerHTML = `<img src=${images[userChoice]}>`
+  machineSelectionDiv.innerHTML = `<img src=${images[computerChoice]}>`
+}
+
+const runGame = (userChoice) => {
+  const computerChoice = doComputerChoice()
+  const winner = selectWinner(userChoice, computerChoice)
+  updateScore(winner)
+  updateSelections(userChoice, computerChoice)
+}
+
+
+// ===== listeners ====
+piedra.addEventListener('click', () => {
+  runGame('piedra')
+})
+papel.addEventListener('click', () => {
+  runGame('papel')
+})
+tijera.addEventListener('click', () => {
+  runGame('tijera')
+})
+
+
+
+
+
+
+
+
+
+

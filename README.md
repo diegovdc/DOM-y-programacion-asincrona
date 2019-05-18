@@ -1,4 +1,4 @@
-# Ejercicios DOM
+# Ejercicios DOM y Programación Asíncrona
 
 Setup:
 

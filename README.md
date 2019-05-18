@@ -7,9 +7,15 @@ Setup:
 ## Ejercicio 1 "Piedra papel o tijera"
 Agregar interactividad al juego en el archivo `piedra-papel-o-tijera.js`
 
+Iniciar servidor:
 `npm run parcel piedra-papel-o-tijera.html`
 
 ## Ejercicio 2 "Tabla de usuarios"
+Recuperar datos de usuario de un endpoint externo y generar una tabla HTML que muestre los datos.
+
+Iniciar servidor:
+`npm run parcel tabla-de-usuarios.html`
+
 Al dar click en el botón `Cargar Datos`, hacer una petición ajax a https://jsonplaceholder.typicode.com/users usando axios.get: Ver documentación en https://github.com/axios/axios#axios-api
 
 Esto devuelve un array con objetos de usuario.

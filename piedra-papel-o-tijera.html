@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang ="es-mx">
+<head>
+	<meta charset ="utf-8" >
+	<title>Piedra, papel o tijera</title>
+	<!-- <link rel="stylesheet" href="piedra-papel-o-tijera.css"> -->
+</head>
+<body>
+
+	<h1>Piedra, papel o tijera</h1>
+	<div class="instrucciones" >
+		<h3>REGLAS</h3>
+		<ul>
+			<li>Para comenzar da click en la imagen que desees elegir.</li>
+			<li>Cada jugada comienza dando click a una imagen.</li>
+			<li>Al ganar o perder cinco jugadas, vuelve a comenzar.</li>
+		</ul>
+
+
+
+	</div>
+	<div class="header">
+
+		<img src="imgs/piedra.png" alt="PIEDRA" class="entrada" id="0">
+		<img src="imgs/papel.png" alt="PAPEL" class="entrada" id="1">
+		<img src="imgs/tijera.png" alt="TIJERA" class="entrada" id="2">
+
+	</div>
+
+	<div class="content">
+		<div class="box">
+			<h2>Has elegìdo:</h2>
+
+			<div class="juego" id="jugador">
+        <!-- poner aquí la imagen seleccionada por el jugador -->
+				<!-- <img src="" alt="opcion jugador" class="imgs" name="opcionjugador"> -->
+			</div>
+      
+			<p id="contadorJugador"></p>
+      
+		</div>
+    
+		<div class="box">
+      <p class="resultado" id="Final"></p>
+		</div>
+    
+		<div class="box">
+      <h2>Iras contra:</h2>
+      
+			<div class="juego" id="maquina">
+          <!-- poner aquí la imagen seleccionada por la máquina -->
+				<!-- <img src="" alt="opcion maquina" class="imgs" name="opcionmaquina"> -->
+			</div>
+			<p id="contadorMaquina"></p>
+		</div>
+	</div>
+
+<script src="./piedra-papel-o-tijera.js"></script>
+</body>

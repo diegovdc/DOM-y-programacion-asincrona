@@ -1,0 +1,15 @@
+{
+  "name": "dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "piedra-papel-o-tijeras.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parcel": "parcel"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "1.12.3"
+  }
+}

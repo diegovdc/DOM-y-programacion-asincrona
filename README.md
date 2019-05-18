@@ -25,7 +25,7 @@ Si aun no saben usar `axios` y `Promises` o `async/await` pero quieren crear una
 
 i.e. 
 ```js
-const users = [{name: 'Pedro Picapiedra', phone: '5512345678'}, {name: 'Edna Moda', phone: ''8765432155}]
+const users = [{name: 'Pedro Picapiedra', phone: '5512345678'}, {name: 'Edna Moda', phone: '8765432155'}]
 ```
 
 Recomendación se puede usar:
